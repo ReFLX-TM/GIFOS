@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Gifos</title>
+</head>
+<body>
+    <nav>
+        <img src="./images/logo-desktop.svg" class="logo" alt="Logo">
+        <div>
+            <ul class="menu-nav">
+                <li>MODO NOCTURNO</li>
+                <li><a href="">FAVORITOS</a></li>
+                <li><a href="">MIS GIFOS</a></li>
+            </ul>
+            <button><img src="./images/button-crear-gifo.svg" alt="Crear gif"></button>
+        </div>
+    </nav>
+    <header>
+        <h1>Inspírate, busca, guarda, y crea los mejores <span class="turquesa">GIFOS</span></h1>
+    </header>
+    <main>
+        <div class="barra-busqueda">    
+            <img src="./images/ilustra_header.svg" alt="Expresate con GIFOS!">
+            <input type="text" class="buscar" id="buscar">
+            <img src="./images/icon-search.svg" id="boton-busqueda" alt="Buscar">
+        </div>
+
+        <div class="trending-tags">
+            <h3>Trending:</h3>
+            <p id="trending-tags"></p>
+        </div>
+
+        <div class="trending-gif">
+            <h2>Trending GIFOS</h2>
+            <p>Mira los últimos GIFO de nuestra comunidad.</p>
+
+            <div class="galeria">
+                <button class="atras boton" id="boton-galeria-atras"><img src="./images/button-slider-left.svg"></button>
+
+                <div id="gif-galeria">
+                    <div class="tarjeta">
+                        <img src="./images/placeholder.jpg" alt="gif">
+                        <img src="./images/icon-fav.svg" alt="Añadir a Favoritos">
+                        <img src="./images/icon-download.svg" alt="Descargar">
+                        <img src="./images/icon-max-normal.svg" alt="Ver en tamaño completo">
+                        <h4>User</h4>
+                        <h3>Titulo</h3>
+                    </div>
+                    <div class="tarjeta">
+                        <img src="./images/placeholder.jpg" alt="gif">
+                        <img src="./images/icon-fav.svg" alt="Añadir a Favoritos">
+                        <img src="./images/icon-download.svg" alt="Descargar">
+                        <img src="./images/icon-max-normal.svg" alt="Ver en tamaño completo">
+                        <h4>User</h4>
+                        <h3>Titulo</h3>
+                    </div>
+                    <div class="tarjeta">
+                        <img src="./images/placeholder.jpg" alt="gif">
+                        <img src="./images/icon-fav.svg" alt="Añadir a Favoritos">
+                        <img src="./images/icon-download.svg" alt="Descargar">
+                        <img src="./images/icon-max-normal.svg" alt="Ver en tamaño completo">
+                        <h4>User</h4>
+                        <h3>Titulo</h3>
+                    </div>
+                </div>
+
+                <button class="adelante boton" id="boton-galeria-adelante"><img src="./images/button-slider-right.svg"></button>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <p>Compartir en:</p>
+
+        <div class="redes">
+            <a href="#"><img src="./images/icon_facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="./images/icon-twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="./images/icon_instagram.svg" alt="Instagram"></a>
+        </div>
+        
+        <p>© GIFOS 2020 All Rights Reserved.</p>
+    </footer>
+
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
