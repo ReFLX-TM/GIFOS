@@ -4,7 +4,7 @@ nav {
     justify-content: space-between;
     width: 100%;
     height: 90px;
-    padding: 0 50px 0 50px;
+    padding: 0 50px;
     border-top: 5px solid #572EE5;
     align-items: center;
 
@@ -32,6 +32,7 @@ nav {
     li {
         color: #572EE5;
         font-size: 13px;
+        font-weight: 700;
         font-family: 'Montserrat', sans-serif;
     }
 }
@@ -40,6 +41,7 @@ nav {
     color: inherit;
     font-size: inherit;
     font-family: inherit;
+    font-weight: inherit;
     border: none;
 }
 

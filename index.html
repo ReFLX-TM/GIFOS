@@ -25,14 +25,16 @@
     </header>
     <main>
         <div class="barra-busqueda">    
-            <img src="./images/ilustra_header.svg" alt="Expresate con GIFOS!">
-            <input type="text" class="buscar" id="buscar">
-            <img src="./images/icon-search.svg" id="boton-busqueda" alt="Buscar">
+            <img src="./images/ilustra_header.svg" class="header-img" alt="Expresate con GIFOS!">
+            <div class="buscador">  
+                <input type="text" class="buscar" id="buscar" placeholder="Busca GIFOS y más">
+                <button id="boton-busqueda"><img src="./images/icon-search.svg" class="boton-busqueda" alt="Buscar"></button>
+            </div>
         </div>
 
         <div class="trending-tags">
             <h3>Trending:</h3>
-            <p id="trending-tags"></p>
+            <p id="trending-tags">Reactions, Entertainment, Sports, Stickers, Artists</p>
         </div>
 
         <div class="trending-gif">
@@ -40,54 +42,66 @@
             <p>Mira los últimos GIFO de nuestra comunidad.</p>
 
             <div class="galeria">
-                <button id="boton-galeria-atras"><</button>
-
-                <div id="gif-galeria">
-                    <div class="tarjeta">
-                        <img src="./images/placeholder.jpg" alt="gif">
-                        <img src="./images/icon-fav.svg" alt="Añadir a Favoritos">
-                        <img src="./images/icon-download.svg" alt="Descargar">
-                        <img src="./images/icon-max-normal.svg" alt="Ver en tamaño completo">
-                        <h4>User</h4>
-                        <h3>Titulo</h3>
-                    </div>
-                    <div class="tarjeta">
-                        <img src="./images/placeholder.jpg" alt="gif">
-                        <img src="./images/icon-fav.svg" alt="Añadir a Favoritos">
-                        <img src="./images/icon-download.svg" alt="Descargar">
-                        <img src="./images/icon-max-normal.svg" alt="Ver en tamaño completo">
-                        <h4>User</h4>
-                        <h3>Titulo</h3>
-                    </div>
-                    <div class="tarjeta">
-                        <img src="./images/placeholder.jpg" alt="gif">
-                        <img src="./images/icon-fav.svg" alt="Añadir a Favoritos">
-                        <img src="./images/icon-download.svg" alt="Descargar">
-                        <img src="./images/icon-max-normal.svg" alt="Ver en tamaño completo">
-                        <h4>User</h4>
-                        <h3>Titulo</h3>
+                <button class="move" id="boton-galeria-atras"><</button>
+                <div class="tarjeta">
+                    <img src="./images/placeholder.jpg" class="gif" alt="gif">
+                    <div class="fondo-tarjeta">
+                        <div class="contenedor-botones">
+                            <div class="boton-tarjeta" id="favoritos"><i class="far fa-heart"></i></div>
+                            <div class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></div>
+                            <div class="boton-tarjeta" id="expandir"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                    
+                        <h4 class="info-tarjeta">User</h4>
+                        <h3 class="info-tarjeta">Titulo</h3>
                     </div>
                 </div>
-
-                <button id="boton-galeria-adelante">></button>
+                <div class="tarjeta">
+                    <img src="./images/placeholder.jpg" class="gif" alt="gif">
+                    <div class="fondo-tarjeta">
+                        <div class="contenedor-botones">
+                            <div class="boton-tarjeta" id="favoritos"><i class="far fa-heart"></i></div>
+                            <div class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></div>
+                            <div class="boton-tarjeta" id="expandir"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                    
+                        <h4 class="info-tarjeta">User</h4>
+                        <h3 class="info-tarjeta">Titulo</h3>
+                    </div>
+                </div>
+                <div class="tarjeta">
+                    <img src="./images/placeholder.jpg" class="gif" alt="gif">
+                    <div class="fondo-tarjeta">
+                        <div class="contenedor-botones">
+                            <div class="boton-tarjeta" id="favoritos"><i class="far fa-heart"></i></div>
+                            <div class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></div>
+                            <div class="boton-tarjeta" id="expandir"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                    
+                        <h4 class="info-tarjeta">User</h4>
+                        <h3 class="info-tarjeta">Titulo</h3>
+                    </div>
+                </div>
+                <button class="move" id="boton-galeria-adelante">></button>
             </div>
 
         </div>
     </main>
     <footer>
-        <p>Compartir en:</p>
-
         <div class="redes">
-            <a href="#"><img src="./images/icon_facebook.svg" alt="Facebook"></a>
-            <a href="#"><img src="./images/icon-twitter.svg" alt="Twitter"></a>
-            <a href="#"><img src="./images/icon_instagram.svg" alt="Instagram"></a>
+            <p>Compartir en:</p>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
         
         <p>© GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/720556c3f5.js" crossorigin="anonymous"></script>
     <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>

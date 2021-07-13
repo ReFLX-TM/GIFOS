@@ -1,0 +1,22 @@
+.trending-tags {
+    display: flex;
+    flex-direction: column;
+    padding: 72px 0;
+    color: #572EE5;
+    font-family: 'Montserrat', sans-serif;
+
+    h3 {
+        width: 100%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    p {
+        margin-top: 7px;
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        font-size: 16px;
+    }
+}

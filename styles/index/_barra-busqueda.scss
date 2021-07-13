@@ -1,0 +1,43 @@
+.barra-busqueda {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+
+    input {
+        height: 50px;
+        width: 550px;
+        border: 1px solid #572EE5;
+        border-radius: 27px;
+        padding: 0 54px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+    }
+
+    input::placeholder {
+        color: #9CAFC3;
+    }
+
+    input:focus {
+        outline: none;
+    }
+}
+
+.header-img {
+    height: auto;
+    width: 400px;
+
+}
+
+.boton-busqueda {
+    height: 20px;
+    width: 20px;
+}
+
+#boton-busqueda {
+    position: relative;
+    top: 5px;
+    right: 8%;
+    border: none;
+}
