@@ -1,0 +1,108 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+nav, header, main, footer {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 90px;
+  padding: 0 50px 0 50px;
+  border-top: 5px solid #572EE5;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 42%;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+.menu-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 78%;
+  list-style-type: none;
+}
+
+.menu-nav li {
+  color: #572EE5;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#nocturno {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+}
+
+#crear-gif {
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  border: 1px solid #572EE5;
+  color: #572EE5;
+  font-size: 28px;
+}
+
+#crear-gif:hover {
+  background-color: #572EE5;
+  color: white;
+}
+
+#crear-gif:active {
+  background-color: #ae9fe7;
+  border: #ae9fe7;
+}
+/*# sourceMappingURL=styles.css.map */
