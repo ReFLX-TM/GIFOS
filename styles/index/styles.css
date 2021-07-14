@@ -188,6 +188,22 @@ header h1 span {
   border: none;
 }
 
+.autocompletar {
+  width: 550px;
+  padding: 50px 0 20px 20px;
+  border: 1px solid #572EE5;
+  border-radius: 27px;
+  list-style-type: none;
+}
+
+.autocompletar li {
+  background-color: white;
+  color: #9CAFC3;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 .trending-tags {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -298,7 +314,7 @@ header h1 span {
 
 .fondo-tarjeta {
   position: relative;
-  bottom: 280px;
+  bottom: 278px;
   height: 100%;
   width: 100%;
   background-color: #572EE5;
@@ -346,6 +362,7 @@ header h1 span {
   left: 5%;
   color: white;
   font-family: 'Roboto', sans-serif;
+  width: 325px;
   opacity: 0;
 }
 

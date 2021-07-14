@@ -41,3 +41,19 @@
     right: 8%;
     border: none;
 }
+
+.autocompletar {
+    width: 550px;
+    padding: 50px 0 20px 20px;
+    border: 1px solid #572EE5;
+    border-radius: 27px;
+    list-style-type: none;
+
+    li {    
+        background-color: white;
+        color: #9CAFC3;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
