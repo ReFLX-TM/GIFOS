@@ -29,6 +29,17 @@
     justify-content: space-around;
 }
 
+#galeria-gif {
+    display: flex;
+    flex-direction: row;
+    width: 92%;
+    overflow: hidden;
+
+    .tarjeta {
+        margin: 0 25px;
+    }
+}
+
 .move {
     height: 40px;
     width: 40px;
@@ -44,8 +55,6 @@
 }
 
 .tarjeta {
-    height: 275px;
-    width: 360px;
 
     h4 {
         font-weight: 400;
@@ -56,6 +65,10 @@
     }
 }
 
+.trending {
+    height: 275px;
+    width: 360px;
+}
 
 .gif {
     height: 100%;
@@ -72,7 +85,7 @@
 
 .fondo-tarjeta {
     position: relative;
-    bottom: 278px;
+    bottom: 279px;
     height: 100%;
     width: 100%;
     background-color: #572EE5;
@@ -82,11 +95,11 @@
 .contenedor-botones {
     position: relative;
     top: 5%;
-    left: 65%;
+    left: 62.5%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 30%;
+    width: 32.5%;
     opacity: 0;
 }
 

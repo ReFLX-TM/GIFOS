@@ -27,34 +27,21 @@
         <div class="barra-busqueda">    
             <img src="./images/ilustra_header.svg" class="header-img" alt="Expresate con GIFOS!">
             <div class="buscador"> 
-                <input type="text" class="buscar" id="buscar" placeholder="Busca GIFOS y más">
+                <input type="text" id="buscar" placeholder="Busca GIFOS y más">
                 <button id="boton-busqueda"><img src="./images/icon-search.svg" class="boton-busqueda" alt="Buscar"></button>
-                <ul class="autocompletar" id="autocompletar"></ul>
+                <ul class="inactivo" id="autocompletar"></ul>
             </div>
-        </div>
-
-        <div class="resultados-busqueda">
-            <h2 id="titulo-busqueda">Título</h2>
-            <div id="resultados-busqueda">
-                <div class="tarjeta gif-busqueda">
-                    <img src="./images/placeholder.jpg" class="gif" alt="gif">
-                    <div class="fondo-tarjeta">
-                        <div class="contenedor-botones">
-                            <div class="boton-tarjeta" id="favoritos"><i class="far fa-heart"></i></div>
-                            <div class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></div>
-                            <div class="boton-tarjeta" id="expandir"><i class="fas fa-expand-alt"></i></div>
-                        </div>
-                    
-                        <h4 class="info-tarjeta">User</h4>
-                        <h3 class="info-tarjeta">Titulo</h3>
-                    </div>
-            </div>
-            <button>Ver Más</button>
         </div>
 
         <div class="trending-tags">
             <h3>Trending:</h3>
             <p id="trending-tags"></p>
+        </div>
+
+        <div class="inactivo" id="resultados">
+            <h2 id="titulo-busqueda">Resultados</h2>
+            <div id="resultados-busqueda"></div>
+            <button id="ver-mas">VER MÁS</button>
         </div>
 
         <div class="trending-gif">
@@ -63,45 +50,7 @@
 
             <div class="galeria" id="trending-gif">
                 <button class="move" id="boton-galeria-atras"><</button>
-                <div class="tarjeta" id="trend">
-                    <img src="./images/placeholder.jpg" class="gif" alt="gif">
-                    <div class="fondo-tarjeta">
-                        <div class="contenedor-botones">
-                            <div class="boton-tarjeta" id="favoritos"><i class="far fa-heart"></i></div>
-                            <div class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></div>
-                            <div class="boton-tarjeta" id="expandir"><i class="fas fa-expand-alt"></i></div>
-                        </div>
-                    
-                        <h4 class="info-tarjeta">User</h4>
-                        <h3 class="info-tarjeta">Titulo</h3>
-                    </div>
-                </div>
-                <div class="tarjeta" id="trend">
-                    <img src="./images/placeholder.jpg" class="gif" alt="gif">
-                    <div class="fondo-tarjeta">
-                        <div class="contenedor-botones">
-                            <div class="boton-tarjeta" id="favoritos"><i class="far fa-heart"></i></div>
-                            <div class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></div>
-                            <div class="boton-tarjeta" id="expandir"><i class="fas fa-expand-alt"></i></div>
-                        </div>
-                    
-                        <h4 class="info-tarjeta">User</h4>
-                        <h3 class="info-tarjeta">Titulo</h3>
-                    </div>
-                </div>
-                <div class="tarjeta" id="trend">
-                    <img src="./images/placeholder.jpg" class="gif" alt="gif">
-                    <div class="fondo-tarjeta">
-                        <div class="contenedor-botones">
-                            <div class="boton-tarjeta" id="favoritos"><i class="far fa-heart"></i></div>
-                            <div class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></div>
-                            <div class="boton-tarjeta" id="expandir"><i class="fas fa-expand-alt"></i></div>
-                        </div>
-                    
-                        <h4 class="info-tarjeta">User</h4>
-                        <h3 class="info-tarjeta">Titulo</h3>
-                    </div>
-                </div>
+                <div id="galeria-gif"></div>
                 <button class="move" id="boton-galeria-adelante">></button>
             </div>
 

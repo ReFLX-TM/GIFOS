@@ -15,6 +15,12 @@
         font-size: 16px;
     }
 
+    .buscando {
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom: none;
+    }
+
     input::placeholder {
         color: #9CAFC3;
     }
@@ -44,9 +50,11 @@
 
 .autocompletar {
     width: 550px;
-    padding: 50px 0 20px 20px;
+    padding: 0 0 20px 20px;
     border: 1px solid #572EE5;
-    border-radius: 27px;
+    border-top: none;
+    border-bottom-left-radius: 27px;
+    border-bottom-right-radius: 27px;
     list-style-type: none;
 
     li {    
