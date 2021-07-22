@@ -266,6 +266,10 @@ header h1 span {
   font-weight: 400;
 }
 
+.autocompletar div:hover {
+  background-color: lightgrey;
+}
+
 .autocompletar li {
   margin-left: 15px;
 }
@@ -602,6 +606,113 @@ footer {
 }
 
 .redes a:hover {
+  color: #572EE5;
+}
+
+.expandir {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.max-cerrar {
+  position: relative;
+  bottom: 10%;
+  left: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15px;
+  height: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 15px;
+  color: #572EE5;
+  border: none;
+}
+
+.max-galeria {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 65%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.max-galeria img {
+  margin-bottom: 30px;
+}
+
+#max-izquierda, #max-derecha {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #572EE5;
+  color: #572EE5;
+  font-size: 24px;
+}
+
+#max-izquierda:hover, #max-derecha:hover {
+  color: white;
+  background-color: #572EE5;
+}
+
+.max-info {
+  font-family: "Roboto", sans-serif;
+}
+
+.max-info h3 {
+  font-size: 15px;
+}
+
+.max-info h4 {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.max-buttons {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 12%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  bottom: 35px;
+  left: 545px;
+}
+
+.max-buttons button {
+  border: none;
+  font-size: 20px;
   color: #572EE5;
 }
 /*# sourceMappingURL=styles.css.map */

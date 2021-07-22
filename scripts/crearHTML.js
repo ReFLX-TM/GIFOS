@@ -1,3 +1,9 @@
+function crearTrendings(stringArray){
+    const trendingTags = document.getElementById("trending-tags");
+    trendingTags.innerHTML = `<a class="tag" href="#trending-tags">${stringArray[0]}</a>, <a class="tag" href="#trending-tags">${stringArray[1]}</a>, <a class="tag" href="#trending-tags">${stringArray[2]}</a>, <a class="tag" href="#trending-tags">${stringArray[3]}</a>, <a class="tag" href="#trending-tags">${stringArray[4]}</a>
+    `;
+}
+
 function crearTrendingGif(gifArray){
     if (gifArray != []) {
         const trendingGif = document.getElementById("galeria-gif");
@@ -33,7 +39,7 @@ function autocompletar(autoArray){
                 `
                 <div class="sugerencia">
                     <i class="fas fa-search"></i>
-                    <li>${sugerencia.name}</li>
+                    <li><a href="#buscar">${sugerencia.name}<a></li>
                 </div>
                 `;
         }
@@ -74,28 +80,6 @@ function busquedaGifs(busqueda, gifArray, clave){
         noResult.className = "contenedor-noresult";
         resultados.className = "inactivo";
         mas.className = "inactivo";
-    }
-}
-
-function crearTrendings(stringArray){
-    const trendingTags = document.getElementById("trending-tags");
-    trendingTags.innerHTML = `<a class="tag" href="#trending-tags">${stringArray[0]}</a>, <a class="tag" href="#trending-tags">${stringArray[1]}</a>, <a class="tag" href="#trending-tags">${stringArray[2]}</a>, <a class="tag" href="#trending-tags">${stringArray[3]}</a>, <a class="tag" href="#trending-tags">${stringArray[4]}</a>
-    `;
-
-    /*Falta arreglar que no funciona el botón de ver mas*/
-
-    const buscar = document.getElementById("buscar");
-    const resultado = document.getElementById("resultados")
-    const tags = document.querySelectorAll(".tag")
-    for (let tag of tags){
-        tag.addEventListener("click", async (e) => {
-            buscar.value = `${e.target.innerHTML}`;
-            const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${e.target.innerHTML}`)
-            const buscarJson = await buscarResponse.json();
-            const buscarArray = buscarJson.data;
-            busquedaGifs(e.target.innerHTML, buscarArray, 12);
-            resultado.className = "resultados-busqueda";
-        })
     }
 }
 

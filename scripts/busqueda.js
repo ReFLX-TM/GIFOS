@@ -1,9 +1,8 @@
-import crear from "./crearHTML.js";
+import crear from "./crearHTML.js"
 
 const inputText = document.getElementById("buscar");
 const inputAuto = document.getElementById("autocompletar");
 const resultado = document.getElementById("resultados");
-const galeria = document.getElementById("resultados-busqueda");
 const buscar = document.getElementById("boton-busqueda");
 const cancelar = document.getElementById("boton-cancelar");
 const mas = document.getElementById("ver-mas");
@@ -11,18 +10,48 @@ let suma = 0;
 let busqueda = "";
 let buscarArray = [];
 
+/*Creacion de tags en trending y su busqueda*/
+
+const trendingResponse = await fetch("https://api.giphy.com/v1/trending/searches?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK");
+const trendingJson = await trendingResponse.json();
+const trendingArray = trendingJson.data;
+if (trendingArray != []){
+    crear.crearTrendings(trendingArray);
+    let tags = document.querySelectorAll(".tag")
+    for (let tag of tags){
+        tag.addEventListener("click", async (e) => {
+            inputText.className = "";
+            inputAuto.className = "inactivo"
+            buscar.className = "boton-busqueda";
+            cancelar.className = "boton-cancelar";
+            suma = 0;
+            inputText.value = `${e.target.innerHTML}`;
+            const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${e.target.innerHTML}`)
+            const buscarJson = await buscarResponse.json();
+            buscarArray = buscarJson.data;
+            crear.busquedaGifs(e.target.innerHTML, buscarArray, 12 + suma);
+            resultado.className = "resultados-busqueda";
+        })
+    }
+}
+
+/*EventListeners de las busquedas*/
+
+
 inputText.addEventListener("keyup", async (e) => {
     suma = 0;
     busqueda = e.target.value;
 
     if (e.keyCode == 13) {
+        e.target.className = "";
+        inputAuto.className = "inactivo"
+        buscar.className = "boton-busqueda";
+        cancelar.className = "boton-cancelar";
         const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${busqueda}&limit=40`)
         const buscarJson = await buscarResponse.json();
         buscarArray = buscarJson.data;
         crear.busquedaGifs(busqueda, buscarArray, 12 + suma);
-        if (galeria.innerHTML != ""){
-            resultado.className = "resultados-busqueda";
-        }
+        resultado.className = "resultados-busqueda";
     }
     
     else if (e.target.value != ""){
@@ -34,6 +63,18 @@ inputText.addEventListener("keyup", async (e) => {
         buscar.className = "buscar-activo";
         cancelar.className = "cancelar-activo";
         inputAuto.className = "autocompletar";
+
+        let sugerenciasLink = document.querySelectorAll(".sugerencia a");
+        for (let sugerencia of sugerenciasLink){
+            sugerencia.addEventListener("click", async (e) => {  
+            inputText.className = "";
+            inputAuto.className = "inactivo"
+            buscar.className = "boton-busqueda";
+            cancelar.className = "boton-cancelar";
+            inputText.value = `${sugerencia.innerText}`;
+            busqueda = sugerencia.innerText;
+            })
+        }
     }
 
     else {
@@ -47,6 +88,11 @@ inputText.addEventListener("keyup", async (e) => {
 
 buscar.addEventListener("click", async (e) => {
     if (busqueda != ""){
+        inputText.className = "";
+        inputAuto.className = "inactivo"
+        buscar.className = "boton-busqueda";
+        cancelar.className = "boton-cancelar";
+        suma = 0;
         const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${busqueda}&limit=40`)
         const buscarJson = await buscarResponse.json();
         buscarArray = buscarJson.data;
@@ -72,9 +118,3 @@ mas.addEventListener("click", async (e) => {
         crear.busquedaGifs(busqueda, buscarArray, 12 + suma);
     }
 })
-
-/*Esto va en crearHTML en la funcion que crea los trendinng tags, aqui por alguna razón 
-no esta tomando los anchors que necesitamos para obtener los tags en trending,
-lo moviste de sitio haciendo pruebas para ver si arreglabas el botón de ver mas cuando hacias
-la busqueda por los tags en trending*/
-
