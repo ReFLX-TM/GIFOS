@@ -28,7 +28,8 @@
             <img src="./images/ilustra_header.svg" class="header-img" alt="Expresate con GIFOS!">
             <div class="buscador"> 
                 <input type="text" id="buscar" placeholder="Busca GIFOS y más">
-                <button id="boton-busqueda"><img src="./images/icon-search.svg" class="boton-busqueda" alt="Buscar"></button>
+                <button class="boton-busqueda" id="boton-busqueda"><i class="fas fa-search"></i></button>
+                <button class="boton-cancelar" id="boton-cancelar"><i class="fas fa-times"></i></button>
                 <ul class="inactivo" id="autocompletar"></ul>
             </div>
         </div>
@@ -39,8 +40,12 @@
         </div>
 
         <div class="inactivo" id="resultados">
-            <h2 id="titulo-busqueda">Resultados</h2>
-            <div id="resultados-busqueda"></div>
+            <h2 id="titulo-busqueda">Lorem Ipsum</h2>
+            <div class="inactivo" id="lo-sentimos">
+                <img src="./images/icon-busqueda-sin-resultado.svg" alt="Lo Sentimos">
+                <p>Intenta con otra búsqueda.</p>
+            </div>
+            <div class="grid-resultados" id="resultados-busqueda"></div>
             <button id="ver-mas">VER MÁS</button>
         </div>
 
