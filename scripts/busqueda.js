@@ -47,7 +47,7 @@ inputText.addEventListener("keyup", async (e) => {
         inputAuto.className = "inactivo"
         buscar.className = "boton-busqueda";
         cancelar.className = "boton-cancelar";
-        const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${busqueda}&limit=40`)
+        const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${busqueda}&limit=48`)
         const buscarJson = await buscarResponse.json();
         buscarArray = buscarJson.data;
         crear.busquedaGifs(busqueda, buscarArray, 12 + suma);
@@ -72,7 +72,14 @@ inputText.addEventListener("keyup", async (e) => {
             buscar.className = "boton-busqueda";
             cancelar.className = "boton-cancelar";
             inputText.value = `${sugerencia.innerText}`;
-            busqueda = sugerencia.innerText;
+            busqueda = sugerencia.innerText; 
+            suma = 0;
+            const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${busqueda}&limit=48`)
+            const buscarJson = await buscarResponse.json();
+            buscarArray = buscarJson.data;
+            crear.busquedaGifs(busqueda, buscarArray, 12 + suma);
+            resultado.className = "resultados-busqueda";
+
             })
         }
     }
@@ -93,7 +100,7 @@ buscar.addEventListener("click", async (e) => {
         buscar.className = "boton-busqueda";
         cancelar.className = "boton-cancelar";
         suma = 0;
-        const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${busqueda}&limit=40`)
+        const buscarResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&q=${busqueda}&limit=48`)
         const buscarJson = await buscarResponse.json();
         buscarArray = buscarJson.data;
         crear.busquedaGifs(busqueda, buscarArray, 12 + suma);
@@ -113,8 +120,14 @@ cancelar.addEventListener("click", (e) => {
 
 mas.addEventListener("click", async (e) => {
     busqueda = `${inputText.value}`;
-    suma += 8;
+    suma += 12;
     if ((12 + suma) < buscarArray.length){
         crear.busquedaGifs(busqueda, buscarArray, 12 + suma);
     }
+    else {
+        crear.busquedaGifs(busqueda, buscarArray, 12 + suma);
+        mas.className = "inactivo";
+    }
 })
+
+const maximizar = document.getElementById("expandir");

@@ -654,7 +654,7 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 65%;
+  width: 70%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -667,8 +667,26 @@ footer {
           justify-content: space-between;
 }
 
-.max-galeria img {
+#gif-max {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 550px;
+  width: 550px;
+}
+
+#gif-max img {
   margin-bottom: 30px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 #max-izquierda, #max-derecha {
@@ -707,7 +725,7 @@ footer {
       -ms-flex-pack: justify;
           justify-content: space-between;
   bottom: 35px;
-  left: 545px;
+  left: 535px;
 }
 
 .max-buttons button {
