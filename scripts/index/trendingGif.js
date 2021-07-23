@@ -1,6 +1,6 @@
 import crear from "./crearHTML.js";
 const galeria = document.getElementById("galeria-gif");
-const trendingResponse = await fetch("https://api.giphy.com/v1/gifs/trending?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&limit=15");
+const trendingResponse = await fetch("https://api.giphy.com/v1/gifs/trending?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&limit=10");
 const trendingJson = await trendingResponse.json();
 const gifArray = trendingJson.data;
 
