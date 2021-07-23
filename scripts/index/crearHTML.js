@@ -34,12 +34,11 @@ function maximizar(gif, gifArray){
     })
 }
 
-let guardados = 0;
 let storage = window.localStorage;
-storage.clear();
+let guardados = localStorage.length;
 
-function favoritear(htmlString) {
-    storage.setItem(`${guardados}`, `${htmlString}`)
+function favoritear(gif, gifArray) {
+    storage.setItem(`${guardados}`, `${gifArray[gif].id}`)
     guardados += 1;
 }
 
@@ -75,11 +74,10 @@ function crearTrendingGif(gifArray){
     }
 
     const gifFavoritos = document.querySelectorAll("#favoritos");
-    const gifEnTrending = document.querySelectorAll(".trending");
 
     for (let gif of gifFavoritos){
         gif.addEventListener("click", (e) => {
-            favoritear(gifEnTrending[gif.attributes.name.value].innerHTML);
+            favoritear(gif.attributes.name.value, gifArray);
         })
     }
 }
@@ -143,6 +141,14 @@ function busquedaGifs(busqueda, gifArray, clave){
     for (let gif of gifGaleria){
         gif.addEventListener("click", (e) => {
             maximizar(gif.attributes.name.value, gifArray);
+        })
+    }
+
+    const gifFavoritos = document.querySelectorAll("#favoritos");
+
+    for (let gif of gifFavoritos){
+        gif.addEventListener("click", (e) => {
+            favoritear(gif.attributes.name.value, gifArray);
         })
     }
 }
