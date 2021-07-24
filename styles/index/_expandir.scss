@@ -29,7 +29,7 @@
     width: 70%;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
 
 }
@@ -45,19 +45,6 @@
         margin-bottom: 30px;
         align-self: center;
     }
-}
-
-#max-izquierda, #max-derecha {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #572EE5;
-    color: #572EE5;
-    font-size: 24px;
-}
-
-#max-izquierda:hover, #max-derecha:hover {
-    color: white;
-    background-color: #572EE5;
 }
 
 .max-info {

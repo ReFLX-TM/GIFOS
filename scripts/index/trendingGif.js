@@ -9,10 +9,25 @@ crear.crearTrendingGif(gifArray);
 const botonIzquierda = document.getElementById("boton-galeria-atras");
 const botonDerecha = document.getElementById("boton-galeria-adelante");
 
+function sideScroll(element,direction,speed,distance,step){
+    let scrollAmount = 0;
+    var slideTimer = setInterval(function(){
+        if(direction == 'left'){
+            element.scrollLeft -= step;
+        } else {
+            element.scrollLeft += step;
+        }
+        scrollAmount += step;
+        if(scrollAmount >= distance){
+            window.clearInterval(slideTimer);
+        }
+    }, speed);
+}
+
 botonIzquierda.addEventListener("click", () => {
-    galeria.scrollLeft -= 550;
+    sideScroll(galeria,'left',25,100,10);
 })
 
 botonDerecha.addEventListener("click", () => {
-    galeria.scrollLeft += 550;
+    sideScroll(galeria,'right',25,100,10);
 })

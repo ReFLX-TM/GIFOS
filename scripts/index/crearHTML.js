@@ -1,9 +1,24 @@
-let storage = window.localStorage;
-let guardados = localStorage.length;
-
 function favoritear(gif, gifArray) {
-    storage.setItem(`${guardados}`, `${gifArray[gif].id}`)
-    guardados += 1;
+    let storage = window.localStorage;
+    let idArray = JSON.parse(storage.getItem("favoritos"))
+    if (idArray.length == 0){
+        idArray.push(gifArray[gif.attributes.name.value].id)
+        storage.setItem("favoritos", JSON.stringify(idArray))
+        gif.innerHTML = '<i class="fas fa-heart"></i>'
+    }
+    else {
+        const verificar = idArray.indexOf(gifArray[gif.attributes.name.value].id)
+        if (verificar === -1){
+            idArray.push(gifArray[gif.attributes.name.value].id)
+            storage.setItem("favoritos", JSON.stringify(idArray))
+            gif.innerHTML = '<i class="fas fa-heart"></i>'
+        }
+        else if (verificar > -1){
+            idArray.splice(verificar, 1);
+            storage.setItem("favoritos", JSON.stringify(idArray))
+            gif.innerHTML = '<i class="far fa-heart"></i>'
+        }
+    }
 }
 
 function crearTrendings(stringArray){
@@ -12,14 +27,28 @@ function crearTrendings(stringArray){
     `;
 }
 
+async function getImage(url) {
+
+    const imageFetch = await fetch(url);
+    const file = await imageFetch.blob();
+    const urlBlob = URL.createObjectURL(file);
+
+    const a = document.createElement("a");
+    a.download = "myImage";
+    a.href = urlBlob;
+    a.textContent = "Download"
+
+    a.click();
+}
+
+
 function maximizar(gif, gifArray){
     const max = document.getElementById("max");
-    let indice = parseInt(gif);
+    const indice = parseInt(gif);
     max.className = "expandir"
     max.innerHTML = `
     <button class="max-cerrar" id="max-cerrar"><i class="fas fa-times"></i></button>
     <div class="max-galeria">
-        <button id="max-izquierda"><</button>
         <div id="gif-max">
             <img id="gif-original" src="${gifArray[indice].images.original.url}">
             <div class="max-info">
@@ -27,11 +56,10 @@ function maximizar(gif, gifArray){
                 <h4 id="gif-max-title">${gifArray[indice].title}</h4>
             </div>
             <div class="max-buttons">
-                <button id="max-fav"><i class="far fa-heart"></i></button>
-                <button id="max-descargar"><i class="fas fa-download"></i></button>
+                <button name="${indice}" id="max-fav"><i class="far fa-heart"></i></button>
+                <button name="${indice}" id="max-descargar"><i class="fas fa-download"></i></button>
             </div>
         </div>
-        <button id="max-derecha">></button>
     </div>
     `
 
@@ -45,32 +73,16 @@ function maximizar(gif, gifArray){
     const maxFav = document.getElementById("max-fav");
 
     maxFav.addEventListener("click", (e) => {
-        favoritear(indice, gifArray);
+        favoritear(maxFav, gifArray);
     })
 
-    const img = document.getElementById("gif-original");
-    const usuario = document.getElementById("gif-max-user");
-    const titulo = document.getElementById("gif-max-title");
-    const maxIzquierda = document.getElementById("max-izquierda");
-    const maxDerecha = document.getElementById("max-derecha");
+    const gifDescarga = document.querySelectorAll("#max-descargar");
 
-    maxIzquierda.addEventListener("click", (e) => {
-        if (indice > 0){
-            indice -= 1;
-            img.attributes.src.value = `${gifArray[indice].images.original.url}`;
-            usuario.innerHTML = `${gifArray[indice].username}`;
-            titulo.innerHTML = `${gifArray[indice].title}`;
-        }
-    })
-
-    maxDerecha.addEventListener("click", (e) => {
-        if (indice < gifArray.length - 1){
-            indice += 1;
-            img.attributes.src.value = `${gifArray[indice].images.original.url}`;
-            usuario.innerHTML = `${gifArray[indice].username}`;
-            titulo.innerHTML = `${gifArray[indice].title}`;
-        }
-    })
+    for (let gif of gifDescarga){
+        gif.addEventListener("click", (e) => {
+            getImage(gifArray[indice].images.original.url);
+        })
+    }
 }
 
 function crearTrendingGif(gifArray){
@@ -83,9 +95,9 @@ function crearTrendingGif(gifArray){
                 <img src="${gifArray[counter].images.fixed_height.url}" class="gif" alt="gif">
                 <div class="fondo-tarjeta">
                     <div class="contenedor-botones">
-                        <div class="boton-tarjeta" name="${counter}" id="favoritos-trending"><i class="far fa-heart"></i></div>
-                        <div class="boton-tarjeta" name="${counter}" id="descargar-trending"><i class="fas fa-download"></i></div>
-                        <div class="boton-tarjeta" name="${counter}" id="expandir-trending"><i class="fas fa-expand-alt"></i></div>
+                        <button class="boton-tarjeta" name="${counter}" id="favoritos-trending"><i class="far fa-heart"></i></button>
+                        <button class="boton-tarjeta" name="${counter}" id="descargar-trending"><i class="fas fa-download"></i></button>
+                        <button class="boton-tarjeta" name="${counter}" id="expandir-trending"><i class="fas fa-expand-alt"></i></button>
                     </div>
                 
                     <h4 class="info-tarjeta">${gifArray[counter].username}</h4>
@@ -108,7 +120,15 @@ function crearTrendingGif(gifArray){
 
     for (let gif of gifFavoritos){
         gif.addEventListener("click", (e) => {
-            favoritear(gif.attributes.name.value, gifArray);
+            favoritear(gif, gifArray);
+        })
+    }
+
+    const gifDescarga = document.querySelectorAll("#descargar-trending");
+
+    for (let gif of gifDescarga){
+        gif.addEventListener("click", (e) => {
+            getImage(gifArray[gif.attributes.name.value].images.original.url);
         })
     }
 }
@@ -142,14 +162,18 @@ function busquedaGifs(busqueda, gifArray, clave){
         titulo.innerHTML = `${busqueda}`;
         resultados.innerHTML = "";
         for (let counter = 0; counter < clave; counter++){
+            noResult.className = "inactivo";
+            resultados.className = "grid-resultados";
+            seccion.className = "resultados-busqueda";
+            mas.className = "";
             resultados.innerHTML += `
             <div class="tarjeta gif-busqueda" id="${counter}">
                 <img src="${gifArray[counter].images.fixed_height.url}" class="gif" alt="gif">
                 <div class="fondo-tarjeta">
                     <div class="contenedor-botones">
-                        <div class="boton-tarjeta" name="${counter}" id="favoritos-busqueda"><i class="far fa-heart"></i></div>
-                        <div class="boton-tarjeta" name="${counter}" id="descargar-busqueda"><i class="fas fa-download"></i></div>
-                        <div class="boton-tarjeta" name="${counter}" id="expandir-busqueda"><i class="fas fa-expand-alt"></i></div>
+                        <button class="boton-tarjeta" name="${counter}" id="favoritos-busqueda"><i class="far fa-heart"></i></button>
+                        <button class="boton-tarjeta" name="${counter}" id="descargar-busqueda"><i class="fas fa-download"></i></button>
+                        <button class="boton-tarjeta" name="${counter}" id="expandir-busqueda"><i class="fas fa-expand-alt"></i></button>
                     </div>
                 
                     <h4 class="info-tarjeta">${gifArray[counter].username}</h4>
@@ -179,7 +203,15 @@ function busquedaGifs(busqueda, gifArray, clave){
 
     for (let gif of gifFavoritos){
         gif.addEventListener("click", (e) => {
-            favoritear(gif.attributes.name.value, gifArray);
+            favoritear(gif, gifArray);
+        })
+    }
+
+    const gifDescarga = document.querySelectorAll("#descargar-busqueda");
+
+    for (let gif of gifDescarga){
+        gif.addEventListener("click", (e) => {
+            getImage(gifArray[gif.attributes.name.value].images.original.url);
         })
     }
 }

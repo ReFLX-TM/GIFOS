@@ -295,23 +295,6 @@ header h1 span {
   font-weight: 700;
 }
 
-.resultados-busqueda button {
-  margin-top: 80px;
-  width: 127px;
-  height: 50px;
-  border: 1px solid #572EE5;
-  border-radius: 25px;
-  color: #572EE5;
-  font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.resultados-busqueda button:hover {
-  background-color: #572EE5;
-  color: white;
-}
-
 .grid-resultados {
   display: -ms-grid;
   display: grid;
@@ -388,6 +371,23 @@ header h1 span {
   font-size: 22px;
   color: #50E3C2;
   font-weight: 700;
+}
+
+#ver-mas {
+  margin-top: 80px;
+  width: 127px;
+  height: 50px;
+  border: 1px solid #572EE5;
+  border-radius: 25px;
+  color: #572EE5;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#ver-mas:hover {
+  background-color: #572EE5;
+  color: white;
 }
 
 .trending-tags {
@@ -662,9 +662,9 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #gif-max {
@@ -687,19 +687,6 @@ footer {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-}
-
-#max-izquierda, #max-derecha {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #572EE5;
-  color: #572EE5;
-  font-size: 24px;
-}
-
-#max-izquierda:hover, #max-derecha:hover {
-  color: white;
-  background-color: #572EE5;
 }
 
 .max-info {
