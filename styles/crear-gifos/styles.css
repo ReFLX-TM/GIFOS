@@ -21,6 +21,10 @@ a {
   display: none;
 }
 
+.nocturno {
+  background-color: #37383C;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;

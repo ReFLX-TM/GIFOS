@@ -20,7 +20,7 @@ if (trendingArray != []){
     let tags = document.querySelectorAll(".tag")
     for (let tag of tags){
         tag.addEventListener("click", async (e) => {
-            inputText.className = "";
+            inputText.className = "input";
             inputAuto.className = "inactivo"
             buscar.className = "boton-busqueda";
             cancelar.className = "boton-cancelar";
@@ -43,7 +43,7 @@ inputText.addEventListener("keyup", async (e) => {
     busqueda = e.target.value;
 
     if (e.keyCode == 13) {
-        e.target.className = "";
+        e.target.className = "input";
         inputAuto.className = "inactivo"
         buscar.className = "boton-busqueda";
         cancelar.className = "boton-cancelar";
@@ -67,7 +67,7 @@ inputText.addEventListener("keyup", async (e) => {
         let sugerenciasLink = document.querySelectorAll(".sugerencia a");
         for (let sugerencia of sugerenciasLink){
             sugerencia.addEventListener("click", async (e) => {  
-            inputText.className = "";
+            inputText.className = "input";
             inputAuto.className = "inactivo"
             buscar.className = "boton-busqueda";
             cancelar.className = "boton-cancelar";
@@ -85,7 +85,7 @@ inputText.addEventListener("keyup", async (e) => {
     }
 
     else {
-        e.target.className = "";
+        e.target.className = "input";
         inputAuto.className = "inactivo";
         buscar.className = "boton-busqueda";
         cancelar.className = "boton-cancelar";
@@ -95,7 +95,7 @@ inputText.addEventListener("keyup", async (e) => {
 
 buscar.addEventListener("click", async (e) => {
     if (busqueda != ""){
-        inputText.className = "";
+        inputText.className = "input";
         inputAuto.className = "inactivo"
         buscar.className = "boton-busqueda";
         cancelar.className = "boton-cancelar";

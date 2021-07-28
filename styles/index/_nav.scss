@@ -28,13 +28,20 @@ nav {
     align-items: center;
     width: 78%;
     list-style-type: none;
+}
 
-    li {
-        color: #572EE5;
-        font-size: 13px;
-        font-weight: 700;
-        font-family: 'Montserrat', sans-serif;
-    }
+.nav-li {
+    color: #572EE5;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-li-noc {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #nocturno {
@@ -42,10 +49,11 @@ nav {
     font-size: inherit;
     font-family: inherit;
     font-weight: inherit;
+    background-color: inherit;
     border: none;
 }
 
-#crear-gif {
+.crear-gif {
     height: 54px;
     width: 54px;
     border-radius: 50%;
@@ -54,12 +62,32 @@ nav {
     font-size: 28px;
 }
 
-#crear-gif:hover {
+.crear-gif:hover {
     background-color: #572EE5;
     color: white;
 }
 
-#crear-gif:active {
+.crear-gif:active {
+    background-color: #ae9fe7;
+    border: #ae9fe7
+}
+
+.crear-gif-noc {
+    height: 54px;
+    width: 54px;
+    border-radius: 50%;
+    border: 1px solid white;
+    color: white;
+    background-color: inherit;
+    font-size: 28px;
+}
+
+.crear-gif-noc:hover {
+    background-color: white;
+    color: #37383C;
+}
+
+.crear-gif-noc:active {
     background-color: #ae9fe7;
     border: #ae9fe7
 }

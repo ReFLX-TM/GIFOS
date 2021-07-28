@@ -1,17 +1,27 @@
 header {
     padding-top: 76px;
-    
-    h1 {
-        width: 100%;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 35px;
-        color: #572EE5;
-        text-align: center;
-        line-height: 50px;
-        padding: 0 25%;
 
-        span {
-            color: #5ED7C6;
-        }
+    span {
+        color: #5ED7C6;
     }
+}
+
+.header {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 50px;
+    padding: 0 25%;
+}
+
+.header-noc {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    padding: 0 25%;
 }

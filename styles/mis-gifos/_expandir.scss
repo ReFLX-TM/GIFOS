@@ -10,18 +10,6 @@
     background-color: white;
 }
 
-.expandir-noc {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: #37383C;
-}
-
 .max-cerrar {
     position: relative;
     bottom: 10%;
@@ -30,7 +18,6 @@
     width: 15px;
     height: 15px;
     align-items: center;
-    background-color: inherit;
     justify-content: center;
     font-size: 15px;
     color: #572EE5;
@@ -43,8 +30,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-
 }
 
 #gif-max {
@@ -82,8 +67,7 @@
     left: 535px;
 
     button {
-        border: none;  
-        background-color: inherit;
+        border: none;
         font-size: 20px;
         color: #572EE5;
     }
