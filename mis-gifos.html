@@ -10,12 +10,12 @@
 </head>
 <body>
     <nav>
-        <a href="./index.html"><img src="./images/logo-desktop.svg" class="logo" alt="Logo"></a>
+        <a href="./index.html" id="logo"><img src="./images/logo-desktop.svg" class="logo" alt="Logo"></a>
         <div>
             <ul class="menu-nav">
-                <li class="nav-li"><button id="nocturno">MODO NOCTURNO</button></li>
-                <li class="nav-li"><a href="./favoritos.html">FAVORITOS</a></li>
-                <li class="nav-li"><a href="./mis-gifos.html">MIS GIFOS</a></li>
+                <li class="nav-li" id="nav-button"><button id="nocturno">MODO NOCTURNO</button></li>
+                <li class="nav-li" id="nav-button"><a href="./favoritos.html">FAVORITOS</a></li>
+                <li class="nav-li" id="nav-button"><a href="./mis-gifos.html">MIS GIFOS</a></li>
             </ul>
             <button class="crear-gif" id="crear-gif"><a href="./crear-gifos.html">+</a></button>
         </div>
@@ -23,15 +23,15 @@
     <main>
         <div class="favoritos">
             <img class="img-fav" src="./images/icon-mis-gifos.svg">
-            <h2 id="titulo-favoritos">Mis Gifos</h2>
+            <h2 id="titulo-favoritos">Mis GIFOS</h2>
             <div class="inactivo" id="guarda-algo">
                 <img src="./images/icon-fav-sin-contenido.svg" alt="Lo Sentimos">
                 <p>"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
             </div>
-            <div class="grid-favoritos" id="favoritos-guardados"></div>
+            <div class="grid-favoritos" id="mis-gif-guardados"></div>
             <button id="ver-mas">VER MÁS</button>
         </div>
-        <div class="trending-gif">
+        <div class="trending-gif" id="trending-gif-container">
             <h2>Trending GIFOS</h2>
             <p>Mira los últimos GIFO de nuestra comunidad.</p>
 

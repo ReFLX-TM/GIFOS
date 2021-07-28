@@ -10,18 +10,18 @@
 </head>
 <body>
     <nav>
-        <a href="./index.html"><img src="./images/logo-desktop.svg" class="logo" alt="Logo"></a>
+        <a href="./index.html" id="logo"><img src="./images/logo-desktop.svg" class="logo" alt="Logo"></a>
         <div>
             <ul class="menu-nav">
-                <li><button id="nocturno">MODO NOCTURNO</button></li>
-                <li><a href="./favoritos.html">FAVORITOS</a></li>
-                <li><a href="./mis-gifos.html">MIS GIFOS</a></li>
+                <li class="nav-li" id="nav-button"><button id="nocturno">MODO NOCTURNO</button></li>
+                <li class="nav-li" id="nav-button"><a href="./favoritos.html">FAVORITOS</a></li>
+                <li class="nav-li" id="nav-button"><a href="./mis-gifos.html">MIS GIFOS</a></li>
             </ul>
-            <button id="crear-gif"><a href="./crear-gifos.html">+</a></button>
+            <button class="crear-gif" id="crear-gif"><a href="./crear-gifos.html">+</a></button>
         </div>
     </nav>
     <main>
-        <div class="crear-gif">
+        <div class="crear-gif-container">
             <div class="camara-img">        
                 <img src="./images/camara.svg">
                 <div class="luz"></div>

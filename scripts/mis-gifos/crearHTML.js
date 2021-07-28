@@ -1,23 +1,41 @@
 function favoritear(gif, gifArray) {
     let storage = window.localStorage;
-    let idArray = JSON.parse(storage.getItem("favoritos"))
-    if (idArray.length == 0){
-        idArray.push(gifArray[gif.attributes.name.value].id)
-        storage.setItem("favoritos", JSON.stringify(idArray))
-        gif.innerHTML = '<i class="fas fa-heart"></i>'
-    }
-    else {
-        const verificar = idArray.indexOf(gifArray[gif.attributes.name.value].id)
-        if (verificar === -1){
+    let idArray = [];
+    if (storage.getItem("favoritos")) {
+        idArray = JSON.parse(storage.getItem("favoritos"))
+        if (idArray.length == 0){
             idArray.push(gifArray[gif.attributes.name.value].id)
             storage.setItem("favoritos", JSON.stringify(idArray))
             gif.innerHTML = '<i class="fas fa-heart"></i>'
         }
-        else if (verificar > -1){
-            idArray.splice(verificar, 1);
-            storage.setItem("favoritos", JSON.stringify(idArray))
-            gif.innerHTML = '<i class="far fa-heart"></i>'
+        else {
+            const verificar = idArray.indexOf(gifArray[gif.attributes.name.value].id)
+            if (verificar === -1){
+                idArray.push(gifArray[gif.attributes.name.value].id)
+                storage.setItem("favoritos", JSON.stringify(idArray))
+                gif.innerHTML = '<i class="fas fa-heart"></i>'
+            }
+            else if (verificar > -1){
+                idArray.splice(verificar, 1);
+                storage.setItem("favoritos", JSON.stringify(idArray))
+                gif.innerHTML = '<i class="far fa-heart"></i>'
+            }
         }
+    }
+    else {
+        idArray.push(gifArray[gif.attributes.name.value].id)
+        storage.setItem("favoritos", JSON.stringify(idArray))
+        gif.innerHTML = '<i class="fas fa-heart"></i>'
+    }
+}
+
+function borrarGif(id){
+    let storage = window.localStorage;
+    let idArray = JSON.parse(storage.getItem("creados"));
+    const verificar = idArray.indexOf(id)
+    if (verificar > -1){
+        idArray.splice(verificar, 1);
+        storage.setItem("creados", JSON.stringify(idArray))
     }
 }
 
@@ -92,7 +110,7 @@ function maximizarFav(gif, gifArray){
                 <h4>${gifArray[indice].title}</h4>
             </div>
             <div class="max-buttons">
-                <button name="${indice}" id="max-fav"><i class="fas fa-heart"></i></button>
+                <button name="${indice}" id="max-borrar"><i class="far fa-trash-alt"></i></button>
                 <button name="${indice}" id="max-descargar"><i class="fas fa-download"></i></button>
             </div>
         </div>
@@ -106,10 +124,10 @@ function maximizarFav(gif, gifArray){
         max.className = "inactivo"
     })
 
-    const maxFav = document.getElementById("max-fav");
+    const maxBorrar = document.getElementById("max-borrar");
 
-    maxFav.addEventListener("click", (e) => {
-        favoritear(maxFav, gifArray);
+    maxBorrar.addEventListener("click", (e) => {
+        borrarGif(gifArray[indice].id);
     })
 
     const gifDescarga = document.querySelectorAll("#max-descargar");
@@ -121,11 +139,11 @@ function maximizarFav(gif, gifArray){
     }
 }
 
-function crearFavoritosGif(gifArray, suma){
+function crearMisGif(gifArray, suma){
     if (gifArray.length != 0) {
-        const favoritosGif = document.getElementById("favoritos-guardados");
+        const misGif = document.getElementById("mis-gif-guardados");
         let limite = 0;
-        favoritosGif.innerHTML = "";
+        misGif.innerHTML = "";
 
         if (suma == 0){
             if (gifArray.length < 10){
@@ -140,14 +158,14 @@ function crearFavoritosGif(gifArray, suma){
         }
 
         for (let counter = 0; counter < limite; counter++){
-            favoritosGif.innerHTML += `
+            misGif.innerHTML += `
             <div class="tarjeta gif-favoritos" id="${counter}">
                 <img src="${gifArray[counter].images.fixed_height.url}" class="gif" alt="gif">
                 <div class="fondo-tarjeta">
                     <div class="contenedor-botones">
-                        <button class="boton-tarjeta" name="${counter}" id="favoritos-fav"><i class="fas fa-heart"></i></button>
-                        <button class="boton-tarjeta" name="${counter}" id="descargar-fav"><i class="fas fa-download"></i></button>
-                        <button class="boton-tarjeta" name="${counter}" id="expandir-fav"><i class="fas fa-expand-alt"></i></button>
+                        <button class="boton-tarjeta" name="${counter}" id="borrar-mis"><i class="far fa-trash-alt"></i></button>
+                        <button class="boton-tarjeta" name="${counter}" id="descargar-mis"><i class="fas fa-download"></i></button>
+                        <button class="boton-tarjeta" name="${counter}" id="expandir-mis"><i class="fas fa-expand-alt"></i></button>
                     </div>
                 
                     <h4 class="info-tarjeta">${gifArray[counter].username}</h4>
@@ -159,7 +177,7 @@ function crearFavoritosGif(gifArray, suma){
         
     }
 
-    const gifExpandir = document.querySelectorAll("#expandir-fav");
+    const gifExpandir = document.querySelectorAll("#expandir-mis");
 
     for (let gif of gifExpandir){
         gif.addEventListener("click", (e) => {
@@ -167,15 +185,15 @@ function crearFavoritosGif(gifArray, suma){
         })
     }
 
-    const gifFavoritos = document.querySelectorAll("#favoritos-fav");
+    const gifBorrar = document.querySelectorAll("#borrar-mis");
 
-    for (let gif of gifFavoritos){
+    for (let gif of gifBorrar){
         gif.addEventListener("click", (e) => {
-            favoritear(gif, gifArray);
+            borrarGif(gifArray[gif.attributes.name.value].id)
         })
     }
 
-    const gifDescarga = document.querySelectorAll("#descargar-fav");
+    const gifDescarga = document.querySelectorAll("#descargar-mis");
 
     for (let gif of gifDescarga){
         gif.addEventListener("click", (e) => {
@@ -235,4 +253,4 @@ function crearTrendingGif(gifArray){
 
 
 
-export default {crearTrendingGif, maximizar, favoritear, crearFavoritosGif};
+export default {crearTrendingGif, maximizar, favoritear, crearMisGif};

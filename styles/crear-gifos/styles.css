@@ -22,7 +22,9 @@ a {
 }
 
 .nocturno {
+  color: white;
   background-color: #37383C;
+  border: none;
 }
 
 nav {
@@ -82,8 +84,15 @@ nav div {
   list-style-type: none;
 }
 
-.menu-nav li {
+.nav-li {
   color: #572EE5;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav-li-noc {
+  color: white;
   font-size: 13px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
@@ -94,20 +103,50 @@ nav div {
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
+  background-color: inherit;
   border: none;
 }
 
-#crear-gif {
+.crear-gif {
   height: 54px;
   width: 54px;
   border-radius: 50%;
-  border: 1px solid #ae9fe7;
-  background-color: #ae9fe7;
-  color: white;
+  border: 1px solid #572EE5;
+  color: #572EE5;
   font-size: 28px;
 }
 
-.crear-gif {
+.crear-gif:hover {
+  background-color: #572EE5;
+  color: white;
+}
+
+.crear-gif:active {
+  background-color: #ae9fe7;
+  border: #ae9fe7;
+}
+
+.crear-gif-noc {
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  border: 1px solid white;
+  color: white;
+  background-color: inherit;
+  font-size: 28px;
+}
+
+.crear-gif-noc:hover {
+  background-color: white;
+  color: #37383C;
+}
+
+.crear-gif-noc:active {
+  background-color: #ae9fe7;
+  border: #ae9fe7;
+}
+
+.crear-gif-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

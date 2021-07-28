@@ -91,6 +91,12 @@ let recorder;
 let stream;
 let intervalo;
 let gifId;
+let storage = window.localStorage;
+let idArray = [];
+
+if (storage.getItem("creados")){
+    idArray = JSON.parse(storage.getItem("creados"));
+}
 
 comenzar.addEventListener("click", (e) => {
     comenzar.className = "inactivo";
@@ -140,5 +146,6 @@ subir.addEventListener("click", async (e) => {
     const subirResponse = await fetch(`https://upload.giphy.com/v1/gifs?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK`, {method: 'POST', body: form});
     const subirJson = await subirResponse.json();
     gifId = subirJson.data.id;
-    console.log(gifId)
+    idArray.push(gifId)
+    storage.setItem("creados", JSON.stringify(idArray));
 })

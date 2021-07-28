@@ -2,10 +2,10 @@ import crear from "./crearHTML.js";
 
 let storage = window.localStorage;
 let idString = "";
-let favGif = [];
+let misGif = [];
 let suma = 0;
 
-let idArray = JSON.parse(storage.getItem("favoritos"))
+let idArray = JSON.parse(storage.getItem("creados"))
 
 if (idArray.length != 0){
     for (let counter = 0; counter < idArray.length; counter++){
@@ -19,14 +19,14 @@ if (idArray.length != 0){
     
     const gifResponse = await fetch(`https://api.giphy.com/v1/gifs?api_key=EhKz1YoCvGNKu8jysQQw0rBVAlYgagwK&ids=${idString}`);
     const gifJson = await gifResponse.json();
-    favGif = gifJson.data;
+    misGif = gifJson.data;
 }
 
-crear.crearFavoritosGif(favGif, suma);
+crear.crearMisGif(misGif, suma);
 
 const verMas = document.getElementById("ver-mas");
 
-if (favGif.length <= 12){
+if (misGif.length <= 12){
     verMas.className = "inactivo"
 }
 else {
@@ -34,13 +34,13 @@ else {
 }
 
 verMas.addEventListener("click", (e) => {
-    if (favGif.length >= 24 + suma){
+    if (misGif.length >= 24 + suma){
         suma += 12;
-        crear.crearFavoritosGif(favGif, suma);
+        crear.crearFavoritosGif(misGif, suma);
     }
     else {
         verMas.className = "inactivo";
-        suma += (favGif.length - (suma + 12));
-        crear.crearFavoritosGif(favGif, suma);
+        suma += (misGif.length - (suma + 12));
+        crear.crearFavoritosGif(misGif, suma);
     }
 })

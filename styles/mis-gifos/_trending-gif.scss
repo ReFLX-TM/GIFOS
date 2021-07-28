@@ -1,12 +1,41 @@
 .trending-gif {
     width: 100%;
-    padding-top: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 650px;
 
     h2 {
         font-family: 'Montserrat', sans-serif;
         font-size: 25px;
         font-weight: 700;
         color: #572EE5;
+        text-align: center;
+    }
+
+    p {
+        margin-top: 12px;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+
+.trending-gif-noc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 650px;
+    width: 100%;
+    background-color: #222326;
+
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 25px;
+        font-weight: 700;
+        color: white;
         text-align: center;
     }
 
@@ -52,6 +81,21 @@
 .move:hover {
     background-color: #572EE5;
     color: white;
+}
+
+.move-noc {
+    height: 40px;
+    width: 40px;
+    border: 1px solid white;
+    color: white;
+    background-color: inherit;
+    font-size: 24px;
+    align-self: center;
+}
+
+.move-noc:hover {
+    background-color: white;
+    color: black;
 }
 
 .tarjeta {

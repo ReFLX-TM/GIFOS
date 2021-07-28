@@ -21,6 +21,12 @@ a {
   display: none;
 }
 
+.nocturno {
+  color: white;
+  background-color: #37383C;
+  border: none;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -224,7 +230,17 @@ nav div {
 
 .trending-gif {
   width: 100%;
-  padding-top: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 650px;
 }
 
 .trending-gif h2 {
@@ -236,6 +252,39 @@ nav div {
 }
 
 .trending-gif p {
+  margin-top: 12px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.trending-gif-noc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 650px;
+  width: 100%;
+  background-color: #222326;
+}
+
+.trending-gif-noc h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+.trending-gif-noc p {
   margin-top: 12px;
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -290,6 +339,23 @@ nav div {
 .move:hover {
   background-color: #572EE5;
   color: white;
+}
+
+.move-noc {
+  height: 40px;
+  width: 40px;
+  border: 1px solid white;
+  color: white;
+  background-color: inherit;
+  font-size: 24px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.move-noc:hover {
+  background-color: white;
+  color: black;
 }
 
 .tarjeta h4 {
