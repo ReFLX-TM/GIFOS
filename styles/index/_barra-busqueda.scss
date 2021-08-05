@@ -29,6 +29,7 @@
     height: 50px;
     width: 550px;
     border: 1px solid white;
+    color: white;
     background-color: inherit;
     border-radius: 27px;
     padding: 0 54px;
@@ -71,6 +72,7 @@
     height: 50px;
     width: 550px;
     border: 1px solid white;
+    background-color: inherit;
     border-radius: 27px;
     color: white;
     padding: 0 54px;
@@ -224,11 +226,63 @@
         font-weight: 400;
     }
 
-    div:hover {
-        background-color: black;
-    }
-
     li {
         margin-left: 15px;
+    }
+}
+
+@media (max-width: 768px){
+    .input {
+        width: 334px;
+    }
+    
+    .input-noc {
+        width: 334px;
+    }
+
+    .buscando {
+        width: 334px;
+        margin-left: 20px;
+    }
+
+    .buscando-noc {
+        width: 334px;
+        margin-left: 20px;
+    }
+
+    .header-img {
+        width: 274px;
+    }
+    
+    .cancelar-activo {
+        right: 16%;
+    }
+    
+    .boton-busqueda {
+        right: 12%;
+    }
+    
+    .boton-busqueda-noc {
+        right: 12%;
+    }
+    
+    .buscar-activo {
+        right: 80%;
+    }
+    
+    .autocompletar {
+        width: 334px;
+    
+        hr {
+            width: 300px;
+        }
+    }
+    
+    .autocompletar-noc {
+        width: 334px;
+    
+        hr {
+            width: 300px;
+        }
     }
 }

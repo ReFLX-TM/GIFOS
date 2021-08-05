@@ -233,6 +233,45 @@ nav div {
   font-weight: 500;
 }
 
+.borde-noc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid white;
+  width: 90%;
+  height: 390px;
+}
+
+.borde-noc h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+}
+
+.borde-noc span {
+  color: #5ED7C6;
+}
+
+.borde-noc p {
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
 .marco {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -249,6 +288,89 @@ nav div {
           align-items: center;
   width: 95%;
   height: 90%;
+}
+
+.fondo-gif {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #572EE5;
+  opacity: 0.6;
+  width: 480px;
+  height: 320px;
+}
+
+.contenedor-botones {
+  position: relative;
+  bottom: 50%;
+  left: 80%;
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 15%;
+}
+
+.boton-tarjeta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 32px;
+  width: 32px;
+  background-color: white;
+  border: none;
+  color: #572EE5;
+  border-radius: 5px;
+}
+
+.info-gif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 130px;
+  opacity: 1;
+}
+
+.info-gif p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+.fondo-img {
+  width: 22px;
+  height: 22px;
 }
 
 .camara {
@@ -302,9 +424,66 @@ nav div {
   color: #572EE5;
 }
 
-.actual {
+.paso-actual {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #572EE5;
+  border-radius: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
   color: white;
   background-color: #572EE5;
+}
+
+.paso-noc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.paso-actual-noc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid white;
+  border-radius: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+  background-color: white;
 }
 
 .linea {
@@ -312,6 +491,14 @@ nav div {
   margin-top: -20px;
   height: 7px;
   background-color: #572EE5;
+  border-radius: 25px;
+}
+
+.linea-noc {
+  width: 100%;
+  margin-top: -20px;
+  height: 7px;
+  background-color: white;
   border-radius: 25px;
 }
 
@@ -331,6 +518,7 @@ nav div {
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 700;
+  background-color: inherit;
   color: #572EE5;
   border: 1px solid #572EE5;
   border-radius: 25px;
@@ -339,6 +527,33 @@ nav div {
 .control:hover {
   background-color: #572EE5;
   color: white;
+}
+
+.control-noc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  width: 127px;
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: inherit;
+  color: white;
+  border: 1px solid white;
+  border-radius: 25px;
+}
+
+.control-noc:hover {
+  background-color: white;
+  color: black;
 }
 
 .misc {
@@ -360,8 +575,19 @@ nav div {
   right: 40px;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
+  background-color: inherit;
   font-weight: 700;
   color: #572EE5;
+}
+
+.contador-noc {
+  position: relative;
+  right: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  background-color: inherit;
+  font-weight: 700;
+  color: white;
 }
 
 .repetir {
@@ -376,6 +602,22 @@ nav div {
 }
 
 .repetir:hover {
+  border-bottom: 2px solid #5ED7C6;
+}
+
+.repetir-noc {
+  position: relative;
+  height: 20px;
+  right: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  background-color: inherit;
+  color: white;
+  border: none;
+}
+
+.repetir-noc:hover {
   border-bottom: 2px solid #5ED7C6;
 }
 

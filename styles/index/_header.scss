@@ -25,3 +25,19 @@ header {
     line-height: 50px;
     padding: 0 25%;
 }
+
+@media (max-width: 768px){
+    .header {
+        margin-top: 30px;
+        font-size: 25px;
+        padding: 0 12.5%;
+        line-height: 33px;
+    }
+
+    .header-noc {
+        margin-top: 30px;
+        font-size: 25px;
+        padding: 0 12.5%;
+        line-height: 33px;
+    }
+}

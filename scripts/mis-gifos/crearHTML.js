@@ -56,7 +56,19 @@ async function getImage(url) {
 function maximizar(gif, gifArray){
     const max = document.getElementById("max");
     let indice = parseInt(gif);
-    max.className = "expandir"
+    const storage = window.localStorage;
+    let nocturno = false;
+
+    if (storage.getItem("nocturno")){
+        nocturno = JSON.parse(storage.getItem("nocturno"));
+    }
+
+    if (nocturno == false){
+        max.className = "expandir"
+    }
+    else {
+        max.className = "expandir-noc"
+    }
     max.innerHTML = `
     <button class="max-cerrar" id="max-cerrar"><i class="fas fa-times"></i></button>
     <div class="max-galeria">
@@ -99,7 +111,19 @@ function maximizar(gif, gifArray){
 function maximizarFav(gif, gifArray){
     const max = document.getElementById("max");
     let indice = parseInt(gif);
-    max.className = "expandir"
+    const storage = window.localStorage;
+    let nocturno = false;
+
+    if (storage.getItem("nocturno")){
+        nocturno = JSON.parse(storage.getItem("nocturno"));
+    }
+
+    if (nocturno == false){
+        max.className = "expandir"
+    }
+    else {
+        max.className = "expandir-noc"
+    }
     max.innerHTML = `
     <button class="max-cerrar" id="max-cerrar"><i class="fas fa-times"></i></button>
     <div class="max-galeria">
@@ -177,6 +201,14 @@ function crearMisGif(gifArray, suma){
         
     }
 
+    const gifs = document.querySelectorAll(".gif-favoritos");
+
+    for (let gif of gifs){
+        gif.addEventListener("click", (e) => {
+            maximizar(gif.attributes.id.value, gifArray);
+        })
+    }
+
     const gifExpandir = document.querySelectorAll("#expandir-mis");
 
     for (let gif of gifExpandir){
@@ -224,6 +256,14 @@ function crearTrendingGif(gifArray){
             </div>
             ` 
         }
+    }
+
+    const gifs = document.querySelectorAll(".trending");
+
+    for (let gif of gifs){
+        gif.addEventListener("click", (e) => {
+            maximizar(gif.attributes.id.value, gifArray);
+        })
     }
 
     const gifExpandir = document.querySelectorAll("#expandir-trending");

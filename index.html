@@ -11,8 +11,11 @@
 <body>
     <nav>
         <a href="./index.html" id="logo"><img src="./images/logo-desktop.svg" class="logo" alt="Logo"></a>
-        <div>
-            <ul class="menu-nav">
+        <button class="boton-hamburguesa" id="boton-hamburguesa">
+            <i class="fas fa-bars" id="icon"></i>
+        </button>
+        <div class="menu-container" id="menu-hamburguesa">
+            <ul class="menu-nav" id="menu-nav">
                 <li class="nav-li" id="nav-button"><button id="nocturno">MODO NOCTURNO</button></li>
                 <li class="nav-li" id="nav-button"><a href="./favoritos.html">FAVORITOS</a></li>
                 <li class="nav-li" id="nav-button"><a href="./mis-gifos.html">MIS GIFOS</a></li>
@@ -47,7 +50,7 @@
                 <p>Intenta con otra búsqueda.</p>
             </div>
             <div class="grid-resultados" id="resultados-busqueda"></div>
-            <button id="ver-mas">VER MÁS</button>
+            <button class="ver-mas" id="ver-mas">VER MÁS</button>
         </div>
 
         <div class="trending-gif" id="trending-gif-container">
@@ -65,7 +68,6 @@
         <div class="inactivo" id="max">
             <button class="max-cerrar" id="max-cerrar"><i class="fas fa-times"></i></button>
             <div class="max-galeria">
-                <button id="max-izquierda"><</button>
                 <div id="gif-max">
                     <img src="./images/placeholder.jpg" alt="">
                     <div class="max-info">
@@ -77,16 +79,17 @@
                         <button id="descargar"><i class="fas fa-download"></i></button>
                     </div>
                 </div>
-                <button id="max-derecha">></button>
             </div>
         </div>
     </main>
     <footer>
         <div class="redes">
             <p>Compartir en:</p>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <div class="links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
         
         <p>© GIFOS 2020 All Rights Reserved.</p>

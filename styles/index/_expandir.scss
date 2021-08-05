@@ -1,4 +1,5 @@
 .expandir {
+    z-index: 10;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -11,6 +12,7 @@
 }
 
 .expandir-noc {
+    z-index: 10;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -86,5 +88,55 @@
         background-color: inherit;
         font-size: 20px;
         color: #572EE5;
+    }
+}
+
+@media (max-width: 768px){
+    .max-cerrar {
+        bottom: 10%;
+        left: 35%;
+    }
+    
+    .max-galeria {
+        display: flex;
+        width: 425px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #gif-max {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 450px;
+        width: 500px;
+    
+        img {
+            height: 245px;
+            width: 318px;
+            margin-bottom: 30px;
+            align-self: center;
+        }
+    }
+    
+    .max-info {
+        padding-left: 35px;
+        width: 300px;
+        font-family: "Roboto", sans-serif;
+    
+        h3 {
+            font-size: 15px;
+        }
+    
+        h4 {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+    }
+    
+    .max-buttons {
+        width: 12%;
+        left: 345px;
     }
 }

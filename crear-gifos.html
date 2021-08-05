@@ -22,16 +22,26 @@
     </nav>
     <main>
         <div class="crear-gif-container">
-            <div class="camara-img">        
+            <div class="camara-img" id="cam-img">        
                 <img src="./images/camara.svg">
                 <div class="luz"></div>
             </div>
             <div class="creador">
-                <div class="borde">
+                <div class="borde" id="borde">
                     <div class="marco">
                         <h1 id="titulo">Aquí podrás<br/>crear tus propios <span>GIFOS</span></h1>
                         <p id="info">¡Crea tu GIFO en sólo 3 pasos!<br/>(sólo necesitas una cámara para grabar un video)</p>
                         <video class="inactivo" id="reproductor"></video>
+                        <div class="inactivo" id="fondo">
+                            <div class="info-gif" id="info-gif">
+                                <img class="fondo-img" src="./images/loader.svg" alt="cargando">
+                                <p>Estamos subiendo tu GIFO</p>
+                            </div>
+                            <div class="inactivo" id="botones-fondo">
+                                <button class="boton-tarjeta" id="descargar"><i class="fas fa-download"></i></button>
+                                <button class="boton-tarjeta"><i class="fas fa-link"></i></button>
+                            </div>
+                        </div>
                     </div>                
                 </div>
                 <div class="pasos">
@@ -43,13 +53,13 @@
                     <div class="inactivo" id="contador">00:00:00</div>
                     <button class="inactivo" id="repetir">REPETIR CAPTURA</button>
                 </div>
-                <div class="linea"></div>
+                <div class="linea" id="linea"></div>
                 <button class="control" id="comenzar">COMENZAR</button>
                 <button class="inactivo" id="grabar">GRABAR</button>
                 <button class="inactivo" id="finalizar">FINALIZAR</button>
                 <button class="inactivo" id="subir-gif">SUBIR GIFO</button>
             </div>
-            <img class="pelicula" src="./images/pelicula.svg">
+            <img class="pelicula" src="./images/pelicula.svg" id="pelicula">
         </div>
     </main>
     <footer>

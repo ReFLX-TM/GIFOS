@@ -38,7 +38,19 @@ async function getImage(url) {
 function maximizar(gif, gifArray){
     const max = document.getElementById("max");
     let indice = parseInt(gif);
-    max.className = "expandir"
+    const storage = window.localStorage;
+    let nocturno = false;
+
+    if (storage.getItem("nocturno")){
+        nocturno = JSON.parse(storage.getItem("nocturno"));
+    }
+
+    if (nocturno == false){
+        max.className = "expandir"
+    }
+    else {
+        max.className = "expandir-noc"
+    }
     max.innerHTML = `
     <button class="max-cerrar" id="max-cerrar"><i class="fas fa-times"></i></button>
     <div class="max-galeria">
@@ -81,7 +93,19 @@ function maximizar(gif, gifArray){
 function maximizarFav(gif, gifArray){
     const max = document.getElementById("max");
     let indice = parseInt(gif);
-    max.className = "expandir"
+    const storage = window.localStorage;
+    let nocturno = false;
+
+    if (storage.getItem("nocturno")){
+        nocturno = JSON.parse(storage.getItem("nocturno"));
+    }
+
+    if (nocturno == false){
+        max.className = "expandir"
+    }
+    else {
+        max.className = "expandir-noc"
+    }
     max.innerHTML = `
     <button class="max-cerrar" id="max-cerrar"><i class="fas fa-times"></i></button>
     <div class="max-galeria">
@@ -122,41 +146,46 @@ function maximizarFav(gif, gifArray){
 }
 
 function crearFavoritosGif(gifArray, suma){
-    if (gifArray.length != 0) {
-        const favoritosGif = document.getElementById("favoritos-guardados");
-        let limite = 0;
-        favoritosGif.innerHTML = "";
+    const favoritosGif = document.getElementById("favoritos-guardados");
+    let limite = 0;
+    favoritosGif.innerHTML = "";
 
-        if (suma == 0){
-            if (gifArray.length < 10){
-                limite = gifArray.length;
-            }
-            else {
-                limite = 12
-            }
+    if (suma == 0){
+        if (gifArray.length < 10){
+            limite = gifArray.length;
         }
         else {
-            limite = 12 + suma;
+            limite = 12
         }
+    }
+    else {
+        limite = 12 + suma;
+    }
 
-        for (let counter = 0; counter < limite; counter++){
-            favoritosGif.innerHTML += `
-            <div class="tarjeta gif-favoritos" id="${counter}">
-                <img src="${gifArray[counter].images.fixed_height.url}" class="gif" alt="gif">
-                <div class="fondo-tarjeta">
-                    <div class="contenedor-botones">
-                        <button class="boton-tarjeta" name="${counter}" id="favoritos-fav"><i class="fas fa-heart"></i></button>
-                        <button class="boton-tarjeta" name="${counter}" id="descargar-fav"><i class="fas fa-download"></i></button>
-                        <button class="boton-tarjeta" name="${counter}" id="expandir-fav"><i class="fas fa-expand-alt"></i></button>
-                    </div>
-                
-                    <h4 class="info-tarjeta">${gifArray[counter].username}</h4>
-                    <h3 class="info-tarjeta">${gifArray[counter].title}</h3>
+    for (let counter = 0; counter < limite; counter++){
+        favoritosGif.innerHTML += `
+        <div class="tarjeta gif-favoritos" id="${counter}">
+            <img src="${gifArray[counter].images.fixed_height.url}" class="gif" alt="gif">
+            <div class="fondo-tarjeta">
+                <div class="contenedor-botones">
+                    <button class="boton-tarjeta" name="${counter}" id="favoritos-fav"><i class="fas fa-heart"></i></button>
+                    <button class="boton-tarjeta" name="${counter}" id="descargar-fav"><i class="fas fa-download"></i></button>
+                    <button class="boton-tarjeta" name="${counter}" id="expandir-fav"><i class="fas fa-expand-alt"></i></button>
                 </div>
+            
+                <h4 class="info-tarjeta">${gifArray[counter].username}</h4>
+                <h3 class="info-tarjeta">${gifArray[counter].title}</h3>
             </div>
-            ` 
-        }
-        
+        </div>
+        ` 
+    }
+
+    const gifs = document.querySelectorAll(".gif-favoritos");
+
+    for (let gif of gifs){
+        gif.addEventListener("click", (e) => {
+            maximizar(gif.attributes.id.value, gifArray);
+        })
     }
 
     const gifExpandir = document.querySelectorAll("#expandir-fav");
@@ -206,6 +235,14 @@ function crearTrendingGif(gifArray){
             </div>
             ` 
         }
+    }
+
+    const gifs = document.querySelectorAll(".trending");
+
+    for (let gif of gifs){
+        gif.addEventListener("click", (e) => {
+            maximizar(gif.attributes.id.value, gifArray);
+        })
     }
 
     const gifExpandir = document.querySelectorAll("#expandir-trending");

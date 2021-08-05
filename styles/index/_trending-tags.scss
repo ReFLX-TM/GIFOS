@@ -43,3 +43,29 @@
         font-size: 16px;
     }
 }
+
+@media (max-width: 768px){
+    .trending-tags {
+        padding: 30px 17.5%;
+    
+        h3 {
+            font-size: 16px;
+        }
+    
+        p {
+            font-size: 14px;
+        }
+    }
+    
+    .trending-tags-noc {
+        padding: 30px 17.5%;
+    
+        h3 {
+            font-size: 16px;
+        }
+    
+        p {
+            font-size: 14px;
+        }
+    }
+}

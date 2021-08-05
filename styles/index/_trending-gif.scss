@@ -119,14 +119,6 @@
     width: 100%;
 }
 
-.tarjeta:hover .fondo-tarjeta{
-    opacity: 0.6;
-}
-
-.tarjeta:hover .contenedor-botones, .tarjeta:hover .info-tarjeta {
-    opacity: 1;
-}
-
 .fondo-tarjeta {
     position: relative;
     bottom: 279px;
@@ -154,6 +146,7 @@
     height: 32px;
     width: 32px;
     background-color: white;
+    border: none;
     color: #572EE5;
     border-radius: 5px;
 }
@@ -166,4 +159,66 @@
     font-family: 'Roboto', sans-serif;
     width: 325px;
     opacity: 0;
+}
+
+@media (min-width: 769px){
+    .tarjeta:hover .fondo-tarjeta{
+        opacity: 0.6;
+    }
+    
+    .tarjeta:hover .contenedor-botones, .tarjeta:hover .info-tarjeta {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px){
+    .trending-gif {
+        height: 550px;
+    
+        h2 {
+            font-size: 25px;
+        }
+    
+        p {
+            font-size: 16px;
+        }
+    }
+    
+    .trending-gif-noc {
+        height: 550px;
+    
+        h2 {
+            font-size: 25px;
+        }
+    
+        p {
+            font-size: 16px;
+        }
+    }
+    
+    .galeria {
+        margin-top: 35px;
+    }
+    
+    #galeria-gif {
+        width: 92%;
+        overflow-x: scroll;
+    
+        .tarjeta {
+            margin: 0 25px;
+        }
+    }
+
+    .move {
+        display: none;
+    }
+    
+    .move-noc {
+        display: none;
+    }
+    
+    .trending {
+        height: 187px;
+        width: 243px;
+    }
 }

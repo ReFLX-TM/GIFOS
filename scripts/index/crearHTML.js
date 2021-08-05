@@ -45,7 +45,19 @@ async function getImage(url) {
 function maximizar(gif, gifArray){
     const max = document.getElementById("max");
     const indice = parseInt(gif);
-    max.className = "expandir"
+    const storage = window.localStorage;
+    let nocturno = false;
+
+    if (storage.getItem("nocturno")){
+        nocturno = JSON.parse(storage.getItem("nocturno"));
+    }
+
+    if (nocturno == false){
+        max.className = "expandir"
+    }
+    else {
+        max.className = "expandir-noc"
+    }
     max.innerHTML = `
     <button class="max-cerrar" id="max-cerrar"><i class="fas fa-times"></i></button>
     <div class="max-galeria">
@@ -108,6 +120,14 @@ function crearTrendingGif(gifArray){
         }
     }
 
+    const gifs = document.querySelectorAll(".trending");
+
+    for (let gif of gifs){
+        gif.addEventListener("click", (e) => {
+            maximizar(gif.attributes.id.value, gifArray);
+        })
+    }
+
     const gifExpandir = document.querySelectorAll("#expandir-trending");
 
     for (let gif of gifExpandir){
@@ -157,6 +177,12 @@ function busquedaGifs(busqueda, gifArray, clave){
     const noResult = document.getElementById("lo-sentimos")
     const resultados = document.getElementById("resultados-busqueda");
     const mas = document.getElementById("ver-mas");
+    const storage = window.localStorage;
+    let nocturno = false;
+
+    if (storage.getItem("nocturno")){
+        nocturno = JSON.parse(storage.getItem("nocturno"));
+    }
     
     if (gifArray.length != 0){
         titulo.innerHTML = `${busqueda}`;
@@ -164,8 +190,14 @@ function busquedaGifs(busqueda, gifArray, clave){
         for (let counter = 0; counter < clave; counter++){
             noResult.className = "inactivo";
             resultados.className = "grid-resultados";
-            seccion.className = "resultados-busqueda";
-            mas.className = "";
+            if (nocturno == false){
+                seccion.className = "resultados-busqueda";
+                mas.className = "ver-mas";
+            }
+            else if (nocturno == true){
+                seccion.className = "resultados-busqueda-noc";
+                mas.className = "ver-mas-noc";
+            }
             resultados.innerHTML += `
             <div class="tarjeta gif-busqueda" id="${counter}">
                 <img src="${gifArray[counter].images.fixed_height.url}" class="gif" alt="gif">
@@ -189,6 +221,14 @@ function busquedaGifs(busqueda, gifArray, clave){
         noResult.className = "contenedor-noresult";
         resultados.className = "inactivo";
         mas.className = "inactivo";
+    }
+
+    const gifs = document.querySelectorAll(".gif-busqueda");
+
+    for (let gif of gifs){
+        gif.addEventListener("click", (e) => {
+            maximizar(gif.attributes.id.value, gifArray);
+        })
     }
     
     const gifGaleria = document.querySelectorAll("#expandir-busqueda");
